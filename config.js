@@ -1,7 +1,7 @@
 // config.js
 export const CONFIG = {
   // 배포한 Apps Script Web App URL (끝이 /exec 로 끝나는 주소)
-  APPS_SCRIPT_URL: "PASTE_YOUR_WEBAPP_EXEC_URL_HERE",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyu2kE5vvScCJ46hF1Xiri_kLGdjgw8ZJ0oRXEh54Lwi50l74r85ihOrHPllH3VTDQ3/exec",
 
   // 이미지가 있는 경로 (GitHub Pages 기준)
   IMAGE_BASE_PATH: "./images",
