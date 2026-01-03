@@ -1,8 +1,8 @@
 /***** ✅ 사용자가 직접 수정해야 하는 부분 *****/
 // 깃허브 저장소 정보 입력
 const GITHUB = {
-  owner: "your-github-id",      // ✅ 본인 깃허브 ID
-  repo: "streetscape-survey",   // ✅ 저장소 이름
+  owner: "yslee11",      // ✅ 본인 깃허브 ID
+  repo: "hy_1",   // ✅ 저장소 이름
   branch: "main",               // ✅ 브랜치 (보통 main)
   baseImagePath: "images"       // ✅ 이미지 기본 폴더 이름
 };
