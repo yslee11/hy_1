@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>가로경관 설문조사</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>가로경관 설문조사</h1>
+      <p class="sub">성별/연령/직업 정보를 입력하고, 제시되는 20장의 사진에 대해 평가해 주세요.</p>
+    </header>
+
+    <!-- 상태바 -->
+    <section class="status" id="statusBox">
+      <div><strong>진행:</strong> <span id="progressText">-</span></div>
+      <div><strong>그룹:</strong> <span id="groupText">-</span></div>
+      <div><strong>참여ID:</strong> <span id="pidText">-</span></div>
+    </section>
+
+    <!-- 1) 기본정보 -->
+    <section class="card" id="demographicsCard">
+      <h2>기본정보</h2>
+
+      <form id="demoForm" class="form">
+        <div class="row">
+          <label>성별</label>
+          <div class="inline">
+            <label class="chip"><input type="radio" name="gender" value="male" required> 남</label>
+            <label class="chip"><input type="radio" name="gender" value="female" required> 여</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="ageBand">연령대</label>
+          <select id="ageBand" name="ageBand" required>
+            <option value="" disabled selected>선택</option>
+            <option value="10">10대</option>
+            <option value="20">20대</option>
+            <option value="30">30대</option>
+            <option value="40">40대</option>
+            <option value="50">50대</option>
+            <option value="60plus">60대 이상</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="job">직업</label>
+          <select id="job" name="job" required>
+            <option value="" disabled selected>선택</option>
+            <option value="student">학생</option>
+            <option value="office">직장인 (사무·전문직 통합)</option>
+            <option value="self">자영업자·상인</option>
+            <option value="field">서비스·현장직 종사자</option>
+            <option value="house">주부</option>
+            <option value="retired">무직/은퇴</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+
+        <div class="row" id="jobOtherRow" style="display:none;">
+          <label for="jobOther">직업(기타) 작성</label>
+          <input id="jobOther" name="jobOther" type="text" placeholder="예: 프리랜서 디자이너" />
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">설문 시작</button>
+          <button type="button" id="resetBtn" class="btn">초기화</button>
+        </div>
+
+        <p class="hint">
+          * ‘설문 시작’을 누르면, 해당 그룹에 할당된 다음 20장의 이미지가 자동으로 불러와집니다.
+        </p>
+      </form>
+    </section>
+
+    <!-- 2) 설문 화면 -->
+    <section class="card" id="surveyCard" style="display:none;">
+      <div class="survey-top">
+        <h2>사진 평가</h2>
+        <div class="survey-nav">
+          <button class="btn" id="prevBtn">이전</button>
+          <button class="btn" id="nextBtn">다음</button>
+        </div>
+      </div>
+
+      <div class="image-wrap">
+        <img id="surveyImage" alt="가로경관 이미지" />
+      </div>
+
+      <div id="metricBox" class="metrics"></div>
+
+      <div class="actions">
+        <button class="btn primary" id="saveCurrentBtn">현재 이미지 저장</button>
+      </div>
+
+      <div class="actions">
+        <button class="btn danger" id="submitAllBtn">20장 전체 제출</button>
+      </div>
+
+      <p class="hint">
+        * 저장을 누르면 로컬에 임시 저장됩니다(새로고침 대비). 전체 제출 시 Google Sheet로 전송됩니다.
+      </p>
+    </section>
+
+    <!-- 토스트 -->
+    <div id="toast" class="toast" style="display:none;"></div>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
