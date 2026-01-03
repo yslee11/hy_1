@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도시 가로경관 인식 조사</title>
+  
+  <!-- Favicon 추가 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏙️</text></svg>">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 표지 페이지 -->
+  <section id="intro-page" class="page active">
+    <h1 class="title">도시 가로경관 인식 조사</h1>
+
+    <p class="intro-text">
+      안녕하세요. 본 설문은 <b>한양대학교 도시공학과 도시설계 및 공간분석 연구실</b>에서 
+      서울시 가로경관에 대한 <b>시민 인식</b>을 평가하기 위해 진행됩니다.
+    </p>
+
+    <div class="guide-box">
+      <h3>평가 방법</h3>
+      <ul>
+        <li>● 제시되는 가로경관 사진을 보고 다음 5가지 항목을 평가합니다.</li>
+        <li>● 각 항목은 <b>0점 ~ 10점</b>으로 평가합니다.</li>
+        <li>● <b>심미성</b>: 얼마나 아름답고 보기 좋은가</li>
+        <li>● <b>보행성</b>: 걷기 편하고 안전한가</li>
+        <li>● <b>활력</b>: 활기차고 생동감 있는가</li>
+        <li>● <b>우울감</b>: 우울하거나 침체된 느낌을 주는가</li>
+        <li>● <b>지루함</b>: 단조롭고 지루한 느낌을 주는가</li>
+      </ul>
+    </div>
+
+    <div class="form-section">
+      <h3>기본 정보</h3>
+      <div class="form-group">
+        <label>성별:</label>
+        <label><input type="radio" name="gender" value="남"> 남</label>
+        <label><input type="radio" name="gender" value="여"> 여</label>
+      </div>
+      
+      <div class="form-group">
+        <label>연령대:</label>
+        <select name="age" id="age">
+          <option value="">선택해 주세요</option>
+          <option value="10대">10대</option>
+          <option value="20대">20대</option>
+          <option value="30대">30대</option>
+          <option value="40대">40대</option>
+          <option value="50대">50대</option>
+          <option value="60대이상">60대 이상</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>직업:</label>
+        <select name="job" id="job">
+          <option value="">선택해 주세요</option>
+          <option value="학생">학생</option>
+          <option value="직장인">직장인 (사무·전문직)</option>
+          <option value="자영업자">자영업자·상인</option>
+          <option value="서비스직">서비스·현장직 종사자</option>
+          <option value="주부">주부</option>
+          <option value="무직">무직/은퇴</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      
+      <div class="form-group" id="job-other-group" style="display: none;">
+        <label>직업 상세:</label>
+        <input type="text" id="job-other" placeholder="직업을 입력해주세요" />
+      </div>
+    </div>
+
+    <button id="startBtn" class="start-btn">설문 시작</button>
+  </section>
+
+  <!-- 설문 페이지 -->
+  <section id="survey-page" class="page">
+    <h2>이미지를 보고 각 항목을 평가해주세요</h2>
+    <p class="subtext">0점 = 매우 낮음 / 10점 = 매우 높음</p>
+    
+    <div id="progress"></div>
+    <div id="loading">이미지 불러오는 중...</div>
+    <img id="survey-image" alt="가로경관 이미지" class="survey-img" />
+    
+    <div class="evaluation-container">
+      <!-- 평가 항목들이 동적으로 생성됩니다 -->
+    </div>
+    
+    <div class="buttons">
+      <button type="button" id="prevBtn">이전</button>
+      <button type="button" id="nextBtn">다음</button>
+    </div>
+  </section>
+
+  <!-- 완료 페이지 -->
+  <section id="end-page" class="page">
+    <h2>참여해 주셔서 감사합니다!</h2>
+    <p>응답이 성공적으로 기록되었습니다.</p>
+    <button id="restartBtn" class="start-btn" style="display: none;">다시 시작</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
